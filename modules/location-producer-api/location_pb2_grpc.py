@@ -5,7 +5,7 @@ import grpc
 import location_pb2 as location__pb2
 
 
-class ItemServiceStub(object):
+class LocationServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,13 +15,13 @@ class ItemServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Create = channel.unary_unary(
-                '/ItemService/Create',
+                '/LocationService/Create',
                 request_serializer=location__pb2.LocationMessage.SerializeToString,
                 response_deserializer=location__pb2.LocationMessage.FromString,
                 )
 
 
-class ItemServiceServicer(object):
+class LocationServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Create(self, request, context):
@@ -31,7 +31,7 @@ class ItemServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ItemServiceServicer_to_server(servicer, server):
+def add_LocationServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Create': grpc.unary_unary_rpc_method_handler(
                     servicer.Create,
@@ -40,12 +40,12 @@ def add_ItemServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ItemService', rpc_method_handlers)
+            'LocationService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ItemService(object):
+class LocationService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -59,7 +59,7 @@ class ItemService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ItemService/Create',
+        return grpc.experimental.unary_unary(request, target, '/LocationService/Create',
             location__pb2.LocationMessage.SerializeToString,
             location__pb2.LocationMessage.FromString,
             options, channel_credentials,

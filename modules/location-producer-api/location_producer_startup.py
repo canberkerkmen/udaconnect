@@ -21,7 +21,7 @@ print('p_connecting to kafka topic ', kafka_topic)
 producer = KafkaProducer(bootstrap_servers=kafka_url)
 
 
-class LocationServicer(location_pb2_grpc.ItemServiceServicer):
+class LocationServicer(location_pb2_grpc.LocationServiceServicer):
 
     def Create(self, request, context):
         request_value = {
@@ -38,7 +38,7 @@ class LocationServicer(location_pb2_grpc.ItemServiceServicer):
 
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
-location_pb2_grpc.add_ItemServiceServicer_to_server(LocationServicer(), server)
+location_pb2_grpc.add_LocationServiceServicer_to_server(LocationServicer(), server)
 
 logging.info('starting on port 5005')
 server.add_insecure_port('[::]:5005')

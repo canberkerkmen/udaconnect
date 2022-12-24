@@ -10,7 +10,7 @@ Simulates user mobiles sending coordinates to gRPC
 print("Coordinates sending...")
 
 channel = grpc.insecure_channel("127.0.0.1:5005")
-stub = location_pb2_grpc.ItemServiceStub(channel)
+stub = location_pb2_grpc.LocationServiceStub(channel)
 
 location = location_pb2.LocationMessage(
     personId=300,

@@ -1,0 +1,9 @@
+location-producer-api process user coordinates sent by mobiles devices. This communication is established using gRPC.
+This decision is based in the fact of efficiency and the requirements about lot of users sending data concurrently.
+It could be a RESTFul API once this service only sends data directly to Kafka and no high loading processing is done.
+
+Behind the LocationMessage has a Kafka cluster that receives this location data that will be consumed by location-consumer-api
+and this data will be stored in postgres database.
+
+person-api is the service that interacts through a RESTFul API with the React Frontend
+connection-api gets data from Person microservice when a request to find out possible connection is made and is done by RESTFul API
