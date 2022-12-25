@@ -1,0 +1,5 @@
+To deploy a Kafka in kubernetes, follow the steps below:
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm install kafka-release bitnami/kafka

@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: Udaconnect-Persons
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: localhost
+  - url: http://localhost
+paths:
+  /api/persons:
+    get:
+      summary: GetAllPersons
+      description: GetAllPersons
+      operationId: getallpersons
+      responses:
+        '200':
+          description: ''
+    post:
+      summary: CreatePerson
+      description: CreatePerson
+      operationId: createperson
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_name:
+                  type: string
+                  example: Apple
+                first_name:
+                  type: string
+                  example: John
+                last_name:
+                  type: string
+                  example: Doe
+            example:
+              company_name: Apple
+              first_name: John
+              last_name: Doe
+      responses:
+        '200':
+          description: ''
+  /api/persons/5/connection:
+    get:
+      summary: GetPersonConnection
+      description: GetPersonConnection
+      operationId: getpersonconnection
+      parameters:
+        - name: start_date
+          in: query
+          schema:
+            type: string
+            example: '2020-01-01'
+        - name: end_date
+          in: query
+          schema:
+            type: string
+            example: '2020-12-30'
+        - name: distance
+          in: query
+          schema:
+            type: string
+            example: '5'
+      responses:
+        '200':
+          description: ''
+  /api/persons/3:
+    get:
+      summary: GetPerson
+      description: GetPerson
+      operationId: getperson
+      responses:
+        '200':
+          description: ''
+tags: []
