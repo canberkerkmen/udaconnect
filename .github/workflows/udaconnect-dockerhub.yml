@@ -28,7 +28,7 @@ jobs:
         name: Build and push connection-api
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: modules/connection-api
           file: modules/connection-api/Dockerfile
           platforms: linux/amd64
           push: true
@@ -37,7 +37,7 @@ jobs:
         name: Build and push person-api
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: modules/person-api
           file: modules/person-api/Dockerfile
           platforms: linux/amd64
           push: true
@@ -46,7 +46,7 @@ jobs:
         name: Build and push frontend
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: modules/frontend
           file: modules/frontend/Dockerfile
           platforms: linux/amd64
           push: true
@@ -55,7 +55,7 @@ jobs:
         name: Build and push location-consumer-api
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: modules/location-consumer-api
           file: modules/location-consumer-api/Dockerfile
           platforms: linux/amd64
           push: true
@@ -64,7 +64,7 @@ jobs:
         name: Build and push location-producer-api
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: modules/location-producer-api
           file: modules/location-producer-api/Dockerfile
           platforms: linux/amd64
           push: true
